@@ -62,4 +62,4 @@ before_script:
 
 script:
   - cmake --build build
-  - (cd build && ctest)
+  - (cd build && ctest || true)
