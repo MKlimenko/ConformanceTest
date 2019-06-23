@@ -18,7 +18,11 @@ foreach(testfile ${testfiles})
  	add_test(NAME ${target}
 			COMMAND ${CMAKE_COMMAND} --build . --target ${target} --config $<CONFIGURATION>
 			WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+			
+	if (${target} MATCHES "[.]fail")
+		set_tests_properties(${target} PROPERTIES WILL_FAIL true)
+	endif()
 	set_target_properties(${target} PROPERTIES
 						EXCLUDE_FROM_ALL TRUE
-						EXCLUDE_FROM_DEFAULT_BUILD TRUE)
+						EXCLUDE_FROM_DEFAULT_BUILD TRUE)					
 endforeach()
