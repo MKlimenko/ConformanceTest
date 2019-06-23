@@ -1,12 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
-project(conformance LANGUAGES CXX)
+project(ConformanceTest LANGUAGES CXX)
 
-add_library(conformance INTERFACE)
-target_include_directories(conformance INTERFACE "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
-                                           $<INSTALL_INTERFACE:include>)
-target_compile_features(conformance INTERFACE cxx_std_14)
+add_library(ConformanceTest INTERFACE)
+target_compile_features(ConformanceTest INTERFACE cxx_std_11)
 
-install(FILES  include/conformance.hpp    DESTINATION include)
+install(FILES  include/ConformanceTest.hpp    DESTINATION include)
 
 enable_testing()
 file(GLOB testfiles test/*.cpp)
