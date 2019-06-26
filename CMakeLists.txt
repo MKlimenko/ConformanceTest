@@ -10,6 +10,9 @@ enable_testing()
 file(GLOB testfiles test/*.cpp)
 foreach(testfile ${testfiles})
 	file(RELATIVE_PATH target "${CMAKE_CURRENT_SOURCE_DIR}" "${testfile}")
+	string(REGEX MATCH "[0-9][0-9]\.cpp" stanard ${target})
+	string(REGEX MATCH "[0-9][0-9]" stanard ${stanard})
+
 	string(REPLACE .cpp "" target ${target})
 	string(REPLACE / "." target ${target})
 	add_executable(${target} "${testfile}")
@@ -22,5 +25,7 @@ foreach(testfile ${testfiles})
 	endif()
 	set_target_properties(${target} PROPERTIES
 						EXCLUDE_FROM_ALL TRUE
-						EXCLUDE_FROM_DEFAULT_BUILD TRUE)					
+						EXCLUDE_FROM_DEFAULT_BUILD TRUE
+						CXX_STANDARD ${stanard}
+						CXX_STANDARD_REQUIRED ON)
 endforeach()
