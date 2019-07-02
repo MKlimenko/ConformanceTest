@@ -1,5 +1,51 @@
-ConformanceTest
----
+# ConformanceTest
+
+Small CMake- & CTest-based project, designed to automate the conformance check of the most common compilers. Both language and library features are represented as a single test file, which is then built by the Travis-CI service. 
+
+Thanks Louis Dionne for the [libawful](https://github.com/ldionne/libawful) and [this reddit discussion](https://www.reddit.com/r/cpp/comments/c3nr2a/i_added_apple_clang_columns_to_cppreference/) as an inspiration for this project.
+
+ - [C++2a library features](#C2a-library-features)
+ - [C++2a language features](#C2a-language-features)
+ - [C++17 library features](#C17-library-features)
+ - [C++17 language features](#C17-language-features)
+ - [C++14 library features](#C14-library-features)
+ - [C++14 language features](#C14-language-features)
+ - [C++11 library features](#C11-library-features)
+ - [C++11 language features](#C11-language-features)
+
+## C++2a library features
+
+WIP
+
+## C++2a language features
+
+WIP
+
+
+## C++17 library features
+
+WIP
+
+## C++17 language features
+
+WIP
+
+
+## C++14 library features
+
+WIP
+
+## C++14 language features
+
+WIP
+
+## C++11 library features
+
+WIP
+
+## C++11 language features
+
+WIP
 
 | Feature                      	| Paper link                       	| clang++-7 																							| сlang++-8 																								| g++-5 																									| g++-6 																									| g++-7 																									|g++-8																										|
 |------------------------------	|----------------------------------	|-----------------------------------------------------------------------------------------------------	|---------------------------------------------------------------------------------------------------------	|---------------------------------------------------------------------------------------------------------	|---------------------------------------------------------------------------------------------------------	|---------------------------------------------------------------------------------------------------------- |---------------------------------------------------------------------------------------------------------- |
@@ -14,11 +60,8 @@ ConformanceTest
 | Lambda-functions 				| [n2550](https://wg21.link/n2550) 	| ![](https://www.dropbox.com/s/moe5pducviwdf45/c%2B%2B11.lambda.n2550.png?raw=1) 						| ![](https://www.dropbox.com/s/zvwqjc1wfisg3nm/c%2B%2B11.lambda.n2550.png?raw=1) 							| ![](https://www.dropbox.com/s/w9amu90s6wtqe3b/c%2B%2B11.lambda.n2550.png?raw=1) 							| ![](https://www.dropbox.com/s/mq69r7vq1pgkc1h/c%2B%2B11.lambda.n2550.png?raw=1) 							| ![](https://www.dropbox.com/s/vpsihlw19dyk29y/c%2B%2B11.lambda.n2550.png?raw=1) 							| ![](https://www.dropbox.com/s/ilc32y4afmf4os8/c%2B%2B11.lambda.n2550.png?raw=1) 							|
 | Non-static initializers		| [n2756](https://wg21.link/n2756) 	| ![](https://www.dropbox.com/s/85j2efy0oaa5dsg/c%2B%2B11.non_static_initializers.n2756.png?raw=1) 		| ![](https://www.dropbox.com/s/fjz2hzvmf09mrh5/c%2B%2B11.non_static_initializers.n2756.png?raw=1) 			| ![](https://www.dropbox.com/s/prsbjwdveup76em/c%2B%2B11.non_static_initializers.n2756.png?raw=1) 			| ![](https://www.dropbox.com/s/2n1ty0l8w9kdozc/c%2B%2B11.non_static_initializers.n2756.png?raw=1) 			| ![](https://www.dropbox.com/s/jgiy3hktw7fxtg9/c%2B%2B11.non_static_initializers.n2756.png?raw=1) 			| ![](https://www.dropbox.com/s/witwn8q1m82o3n1/c%2B%2B11.non_static_initializers.n2756.png?raw=1) 			|
 | `override`					| [n3272](https://wg21.link/n3272) 	| ![](https://www.dropbox.com/s/npyhrivl974l5xp/c%2B%2B11.override.n3272.png?raw=1) 					| ![](https://www.dropbox.com/s/driaa0fdcgiftwu/c%2B%2B11.override.n3272.png?raw=1) 						| ![](https://www.dropbox.com/s/jx98vbgz2qmf193/c%2B%2B11.override.n3272.png?raw=1) 						| ![](https://www.dropbox.com/s/8jy69kqtznfys7p/c%2B%2B11.override.n3272.png?raw=1) 						| ![](https://www.dropbox.com/s/ws2bdpl9yxo6bya/c%2B%2B11.override.n3272.png?raw=1) 						| ![](https://www.dropbox.com/s/w8zwrmd3wjf96cd/c%2B%2B11.override.n3272.png?raw=1) 						|
-| `override`					| [n3272](https://wg21.link/n3272) 	| ![](https://www.dropbox.com/s/lfwu9ptrzz50mir/c%2B%2B11.override.n3272.fail.png?raw=1) 				| ![](https://www.dropbox.com/s/3sdd577dpjd6k5j/c%2B%2B11.override.n3272.fail.png?raw=1) 					| ![](https://www.dropbox.com/s/wlqj7xo9o0rjmdx/c%2B%2B11.override.n3272.fail.png?raw=1) 					| ![](https://www.dropbox.com/s/my0w8prmm5m1p70/c%2B%2B11.override.n3272.fail.png?raw=1) 					| ![](https://www.dropbox.com/s/bgak1kjlwui5gmz/c%2B%2B11.override.n3272.fail.png?raw=1) 					| ![](https://www.dropbox.com/s/iyftzwqan9yj3kh/c%2B%2B11.override.n3272.fail.png?raw=1) 					|
 | Range-based for-loop			| [n2930](https://wg21.link/n2930) 	| ![](https://www.dropbox.com/s/cel22zgwa80x56n/c%2B%2B11.ranged_for_loop.n2930.png?raw=1) 				| ![](https://www.dropbox.com/s/w4lcskoinv849dt/c%2B%2B11.ranged_for_loop.n2930.png?raw=1) 					| ![](https://www.dropbox.com/s/v1mva3kh1top2uo/c%2B%2B11.ranged_for_loop.n2930.png?raw=1) 					| ![](https://www.dropbox.com/s/ngroutagg1mgee9/c%2B%2B11.ranged_for_loop.n2930.png?raw=1) 					| ![](https://www.dropbox.com/s/is2briesbaaummd/c%2B%2B11.ranged_for_loop.n2930.png?raw=1) 					| ![](https://www.dropbox.com/s/ll6yi525f5v1qgq/c%2B%2B11.ranged_for_loop.n2930.png?raw=1) 					|
 | Right-angle brackets			| [n1757](https://wg21.link/n1757) 	| ![](https://www.dropbox.com/s/070ejr9c8tn31ts/c%2B%2B11.right_angle_brackets.n1757.png?raw=1) 		| ![](https://www.dropbox.com/s/lulbt25kccqhry5/c%2B%2B11.right_angle_brackets.n1757.png?raw=1) 			| ![](https://www.dropbox.com/s/bsclry0s9uvrs07/c%2B%2B11.right_angle_brackets.n1757.png?raw=1) 			| ![](https://www.dropbox.com/s/50ammj56pwv7wgm/c%2B%2B11.right_angle_brackets.n1757.png?raw=1) 			| ![](https://www.dropbox.com/s/32hulvhai2mqthi/c%2B%2B11.right_angle_brackets.n1757.png?raw=1) 			| ![](https://www.dropbox.com/s/in78v8evw004143/c%2B%2B11.right_angle_brackets.n1757.png?raw=1) 			|
-| Right-angle brackets			| [n1757](https://wg21.link/n1757) 	| ![](https://www.dropbox.com/s/svcgk57khx1aev4/c%2B%2B11.right_angle_brackets.n1757.fail.png?raw=1) 	| ![](https://www.dropbox.com/s/qk11btz5v4b87i7/c%2B%2B11.right_angle_brackets.n1757.fail.png?raw=1) 		| ![](https://www.dropbox.com/s/cq9yeh82qa1xdul/c%2B%2B11.right_angle_brackets.n1757.fail.png?raw=1) 		| ![](https://www.dropbox.com/s/40aia803zso2qa0/c%2B%2B11.right_angle_brackets.n1757.fail.png?raw=1) 		| ![](https://www.dropbox.com/s/4z9gofeawo81kbt/c%2B%2B11.right_angle_brackets.n1757.fail.png?raw=1) 		| ![](https://www.dropbox.com/s/20sy3oqadzz5oik/c%2B%2B11.right_angle_brackets.n1757.fail.png?raw=1) 		|
 | rvalues						| [n3053](https://wg21.link/n3053) 	| ![](https://www.dropbox.com/s/x2pa6su21t9sywk/c%2B%2B11.rvalue.n3053.png?raw=1) 						| ![](https://www.dropbox.com/s/dv7wgm6rn3l3nae/c%2B%2B11.rvalue.n3053.png?raw=1) 							| ![](https://www.dropbox.com/s/4fiyaa9pbvo8vru/c%2B%2B11.rvalue.n3053.png?raw=1) 							| ![](https://www.dropbox.com/s/0ai99hbtz4zlelv/c%2B%2B11.rvalue.n3053.png?raw=1) 							| ![](https://www.dropbox.com/s/mre334atci3kjpf/c%2B%2B11.rvalue.n3053.png?raw=1) 							| ![](https://www.dropbox.com/s/mi2nheu7b01zdn2/c%2B%2B11.rvalue.n3053.png?raw=1) 							|
 | `static_assert`				| [n1720](https://wg21.link/n1720) 	| ![](https://www.dropbox.com/s/my0kdmpng9oy5ia/c%2B%2B11.static_assert.n1720.png?raw=1) 				| ![](https://www.dropbox.com/s/d5cqukoqe84yd8n/c%2B%2B11.static_assert.n1720.png?raw=1) 					| ![](https://www.dropbox.com/s/53d7zd4vllzf8cr/c%2B%2B11.static_assert.n1720.png?raw=1) 					| ![](https://www.dropbox.com/s/iomxsysx60req2y/c%2B%2B11.static_assert.n1720.png?raw=1) 					| ![](https://www.dropbox.com/s/tzok4olrajd1en8/c%2B%2B11.static_assert.n1720.png?raw=1) 					| ![](https://www.dropbox.com/s/7noua8gvr6jpo9q/c%2B%2B11.static_assert.n1720.png?raw=1) 					|
 | User-defined literals			| [n2765](https://wg21.link/n2765) 	| ![](https://www.dropbox.com/s/35q23d2jxcl265d/c%2B%2B11.user_defined_literals.n2765.png?raw=1) 		| ![](https://www.dropbox.com/s/brygjodx0xi9gwa/c%2B%2B11.user_defined_literals.n2765.png?raw=1) 			| ![](https://www.dropbox.com/s/mhsqev7oo8lcf2m/c%2B%2B11.user_defined_literals.n2765.png?raw=1) 			| ![](https://www.dropbox.com/s/9bl49fcjcb0k0dg/c%2B%2B11.user_defined_literals.n2765.png?raw=1) 			| ![](https://www.dropbox.com/s/ux85ekdxp2rxfik/c%2B%2B11.user_defined_literals.n2765.png?raw=1) 			| ![](https://www.dropbox.com/s/lwmnf1ubw4dgjuh/c%2B%2B11.user_defined_literals.n2765.png?raw=1) 			|
-| User-defined literals			| [n2765](https://wg21.link/n2765) 	| ![](https://www.dropbox.com/s/qxfeafdj3bwcf1r/c%2B%2B11.user_defined_literals.n2765.fail.png?raw=1) 	| ![](https://www.dropbox.com/s/g2y0tdqickyzafn/c%2B%2B11.user_defined_literals.n2765.fail.png?raw=1) 		| ![](https://www.dropbox.com/s/qoj8ie3s70zfsfy/c%2B%2B11.user_defined_literals.n2765.fail.png?raw=1) 		| ![](https://www.dropbox.com/s/rp5c5nygdm6yx7l/c%2B%2B11.user_defined_literals.n2765.fail.png?raw=1) 		| ![](https://www.dropbox.com/s/075j4gawkapn2mm/c%2B%2B11.user_defined_literals.n2765.fail.png?raw=1) 		| ![](https://www.dropbox.com/s/q6epc38oopbzonc/c%2B%2B11.user_defined_literals.n2765.fail.png?raw=1) 		|
