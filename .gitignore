@@ -1,2 +1,5 @@
 build/*
 /test_cmake/*
+src/.gem/*
+src/dropbox_uploader.sh
+.gem/

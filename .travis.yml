@@ -1,27 +1,28 @@
 language: cpp
 sudo: false
+skip_cleanup: true
 
 matrix:
   include:
-#    - os: linux
-#      env: LLVM_VERSION=7.0.0
-#      addons: { apt: { packages: ["clang-7"], sources: ["llvm-toolchain-trusty-7", "ubuntu-toolchain-r-test"] } }
-#
-#    - os: linux
-#      env: LLVM_VERSION=8.0.0
-#      addons: { apt: { packages: ["clang-8"], sources: ["llvm-toolchain-trusty-8", "ubuntu-toolchain-r-test"] } }
-#
-#    - os: linux
-#      env: COMPILER=g++-5
-#      addons: { apt: { packages: ["g++-5"], sources: ["ubuntu-toolchain-r-test"] } }
-#
-#    - os: linux
-#      env: COMPILER=g++-6
-#      addons: { apt: { packages: ["g++-6"], sources: ["ubuntu-toolchain-r-test"] } }
-#
-#    - os: linux
-#      env: COMPILER=g++-7
-#      addons: { apt: { packages: ["g++-7"], sources: ["ubuntu-toolchain-r-test"] } }
+    - os: linux
+      env: LLVM_VERSION=7.0.0
+      addons: { apt: { packages: ["clang-7"], sources: ["llvm-toolchain-trusty-7", "ubuntu-toolchain-r-test"] } }
+
+    - os: linux
+      env: LLVM_VERSION=8.0.0
+      addons: { apt: { packages: ["clang-8"], sources: ["llvm-toolchain-trusty-8", "ubuntu-toolchain-r-test"] } }
+
+    - os: linux
+      env: COMPILER=g++-5
+      addons: { apt: { packages: ["g++-5"], sources: ["ubuntu-toolchain-r-test"] } }
+
+    - os: linux
+      env: COMPILER=g++-6
+      addons: { apt: { packages: ["g++-6"], sources: ["ubuntu-toolchain-r-test"] } }
+
+    - os: linux
+      env: COMPILER=g++-7
+      addons: { apt: { packages: ["g++-7"], sources: ["ubuntu-toolchain-r-test"] } }
 
     - os: linux
       env: COMPILER=g++-8
@@ -39,6 +40,7 @@ install:
   ############################################################################
   - if [[ "${COMPILER}" != "" ]]; then export CXX=${COMPILER}; fi
   - if [[ "${LLVM_VERSION}" != "" ]]; then export CXX="clang++-${LLVM_VERSION%.[0-9].[0-9]}"; fi
+  - if [[ "${LLVM_VERSION}" != "" ]]; then export COMPILER="clang++-${LLVM_VERSION%.[0-9].[0-9]}"; fi
   - ${CXX} --version
 
   ############################################################################
@@ -62,4 +64,14 @@ before_script:
 
 script:
   - cmake --build build
-  - (cd build && ctest || true)
+  - cd build
+  - mkdir results
+  - ctest . > results/log.txt
+  - cd results
+  - rm -rfv ~/.dropbox_uploader
+  - echo "OAUTH_ACCESS_TOKEN=$OAUTH_ACCESS_TOKEN" > ~/.dropbox_uploader
+  - curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o ~/dropbox_uploader.sh
+  - chmod +x ~/dropbox_uploader.sh
+  - python ../../src/parse.py > table.txt
+  - cat table.txt
+  - ~/dropbox_uploader.sh upload table.txt Public/ConformanceTest/$TRAVIS_BRANCH/$COMPILER/table.txt

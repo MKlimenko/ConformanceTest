@@ -10,11 +10,11 @@ enable_testing()
 file(GLOB testfiles test/*.cpp)
 foreach(testfile ${testfiles})
 	file(RELATIVE_PATH target "${CMAKE_CURRENT_SOURCE_DIR}" "${testfile}")
-	string(REGEX MATCH "[0-9][0-9]\.cpp" stanard ${target})
+	string(REGEX MATCH "c\\+\\+[0-9][0-9]" stanard ${target})
 	string(REGEX MATCH "[0-9][0-9]" stanard ${stanard})
-
+	
 	string(REPLACE .cpp "" target ${target})
-	string(REPLACE / "." target ${target})
+	string(REPLACE test/ "" target ${target})
 	add_executable(${target} "${testfile}")
  	add_test(NAME ${target}
 			COMMAND ${CMAKE_COMMAND} --build . --target ${target} --config $<CONFIGURATION>
